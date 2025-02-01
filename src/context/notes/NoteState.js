@@ -4,102 +4,131 @@ import NoteContext from "./NoteContext";
 const NoteState = (props) => {
   const notesInitial = [
     {
-      "_id": "67969188b4f42a5fea1771e9",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My second Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T19:48:24.711Z",
-      "__v": 0
+      _id: "67969188b4f42a5fea1771e9",
+      user: "6796632dea172d898b6b8870",
+      title: "My second Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T19:48:24.711Z",
+      __v: 0,
     },
     {
-      "_id": "6796944ab6746ae3b094948b",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My first Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T20:00:10.646Z",
-      "__v": 0
+      _id: "6796944ab6746ae3b094948b",
+      user: "6796632dea172d898b6b8870",
+      title: "My first Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T20:00:10.646Z",
+      __v: 0,
     },
     {
-      "_id": "67969188b4f42a5fea1771ef",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My second Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T19:48:24.711Z",
-      "__v": 0
+      _id: "67969188b4f42a5fea1771ef",
+      user: "6796632dea172d898b6b8870",
+      title: "My second Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T19:48:24.711Z",
+      __v: 0,
     },
     {
-      "_id": "6796944ab6746ae3b094948f",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My first Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T20:00:10.646Z",
-      "__v": 0
+      _id: "6796944ab6746ae3b094948f",
+      user: "6796632dea172d898b6b8870",
+      title: "My first Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T20:00:10.646Z",
+      __v: 0,
     },
     {
-      "_id": "67969188b4f42a5fea1771ee",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My second Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T19:48:24.711Z",
-      "__v": 0
+      _id: "67969188b4f42a5fea1771ee",
+      user: "6796632dea172d898b6b8870",
+      title: "My second Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T19:48:24.711Z",
+      __v: 0,
     },
     {
-      "_id": "6796944ab6746ae3b094948e",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My first Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T20:00:10.646Z",
-      "__v": 0
+      _id: "6796944ab6746ae3b094948e",
+      user: "6796632dea172d898b6b8870",
+      title: "My first Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T20:00:10.646Z",
+      __v: 0,
     },
     {
-      "_id": "67969188b4f42a5fea1771ed",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My second Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T19:48:24.711Z",
-      "__v": 0
+      _id: "67969188b4f42a5fea1771ed",
+      user: "6796632dea172d898b6b8870",
+      title: "My second Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T19:48:24.711Z",
+      __v: 0,
     },
     {
-      "_id": "6796944ab6746ae3b094948d",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My first Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T20:00:10.646Z",
-      "__v": 0
+      _id: "6796944ab6746ae3b094948d",
+      user: "6796632dea172d898b6b8870",
+      title: "My first Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T20:00:10.646Z",
+      __v: 0,
     },
     {
-      "_id": "67969188b4f42a5fea1771ec",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My second Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T19:48:24.711Z",
-      "__v": 0
+      _id: "67969188b4f42a5fea1771ec",
+      user: "6796632dea172d898b6b8870",
+      title: "My second Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T19:48:24.711Z",
+      __v: 0,
     },
     {
-      "_id": "6796944ab6746ae3b094948c",
-      "user": "6796632dea172d898b6b8870",
-      "title": "My first Note",
-      "description": "Adding my second note here",
-      "tag": "hihihi",
-      "date": "2025-01-26T20:00:10.646Z",
-      "__v": 0
-    }
+      _id: "6796944ab6746ae3b094948c",
+      user: "6796632dea172d898b6b8870",
+      title: "My first Note",
+      description: "Adding my second note here",
+      tag: "hihihi",
+      date: "2025-01-26T20:00:10.646Z",
+      __v: 0,
+    },
   ];
 
-  const [notes,setNotes] = useState(notesInitial)
+  const [notes, setNotes] = useState(notesInitial);
+
+  //ADD A NOTE
+  const addNote = (title, description, tag) => {
+    //TODO API CALL
+    const note = {
+      _id: "6796944ab6746ae3b09re4948c",
+      user: "6796632dea172d898b6b8870",
+      title: title,
+      description: description,
+      tag: tag,
+      date: "2025-01-26T20:00:10.646Z",
+      __v: 0,
+    };
+    setNotes(notes.concat(note));
+  };
+  //DELETE A NOTE
+  const deleteNote = () => {
+    //TODO API CALL
+    const note = null;
+    setNotes(notes.push(note));
+  };
+  //EDIT A NOTE
+  const editNote = () => {
+    //TODO API CALL
+    const note = null;
+    setNotes(notes.push(note));
+  };
 
   return (
-    <NoteContext.Provider value={{notes, setNotes}}>{props.children}</NoteContext.Provider>
-  ); 
+    <NoteContext.Provider value={{ notes, addNote, deleteNote, editNote }}>
+      {props.children}
+    </NoteContext.Provider>
+  );
 };
 
 export default NoteState;
