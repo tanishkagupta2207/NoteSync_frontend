@@ -12,7 +12,7 @@ const Notes = () => {
     _id: "",
     title: "",
     description: "",
-    tag: "default",
+    tag: "",
   });
 
   const [noteView, setNoteView] = useState(false);
