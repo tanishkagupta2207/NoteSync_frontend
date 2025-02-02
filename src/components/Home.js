@@ -1,11 +1,11 @@
 import React from "react";
 import Notes from "./Notes";
 
-const Home = () => {
-
+const Home = (props) => {
   return (
     <div>
-        <Notes />
+      <h1 style={{'textAlign': 'center', marginTop: '70px'}}>NOTESYNC</h1>
+        <Notes showAlert={props.showAlert}/>
     </div>
   );
 };

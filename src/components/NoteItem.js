@@ -26,8 +26,13 @@ const NoteItem = (props) => {
 
             <i
               className="fa-solid fa-trash-can mx-2 p-2"
-              onClick={() => {
-                deleteNote(note._id);
+              onClick={async() => {
+                const stat = await deleteNote(note._id);
+                if(stat.success !== true){
+                  props.showAlert(stat.msg, 'danger');
+                } else{
+                  props.showAlert(stat.msg, 'success');
+                }
               }}
             ></i>
           </div>

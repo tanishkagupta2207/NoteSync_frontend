@@ -1,39 +1,46 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
   let navigate = useNavigate();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${process.env.REACT_APP_HOST_URL}api/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    }); 
+    const response = await fetch(
+      `${process.env.REACT_APP_HOST_URL}api/auth/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      }
+    );
     const res = await response.json();
-    console.log(res); 
-    if(res.success){
+    if (res.success) {
       localStorage.setItem("token", res.authToken);
-      navigate('/');
+      props.showAlert("Login Successful!", "success");
+      navigate("/");
+    } else {
+      if (res.msg) {
+        props.showAlert(res.msg, "danger");
+      } else {
+        props.showAlert(res.errors[0].msg, 'danger');
+      }
     }
-    else{
-      alert('Could not login!');
-    }
-  }
+  };
 
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   return (
-    <div>
+    <div className="container my-3">
+      <h1 style={{'textAlign': 'center'}}>Login</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
@@ -62,7 +69,7 @@ const Login = () => {
             value={credentials.password}
           />
         </div>
-        <button type="submit" className="btn btn-primary" >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

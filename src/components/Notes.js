@@ -4,8 +4,9 @@ import { useContext } from "react";
 import noteContext from "../context/notes/NoteContext";
 import NoteItem from "./NoteItem";
 import AddNote from "./AddNote";
+import { useNavigate } from "react-router-dom";
 
-const Notes = () => {
+const Notes = (props) => {
   const context = useContext(noteContext);
   const { notes, getAllNotes, editNote } = context;
   const [enote, setEnote] = useState({
@@ -14,6 +15,7 @@ const Notes = () => {
     description: "",
     tag: "",
   });
+  let navigate = useNavigate();
 
   const [noteView, setNoteView] = useState(false);
   const modalRef = useRef(null);
@@ -26,7 +28,17 @@ const Notes = () => {
   };
 
   useEffect(() => {
-    getAllNotes();
+    const fetchNotes = async () => {
+      const stat = await getAllNotes();
+      if (stat.success !== true) {
+        props.showAlert(stat.msg, "danger");
+      }
+    };
+    if (localStorage.getItem("token")) {
+      fetchNotes();
+    } else{
+      navigate("/login");
+    }
     // eslint-disable-next-line
   }, []);
 
@@ -38,8 +50,8 @@ const Notes = () => {
   }, [noteView]);
 
   return (
-    <div>
-      <AddNote />
+    <div className="my-2">
+      <AddNote showAlert={props.showAlert} />
       {noteView && (
         <div>
           <div
@@ -120,14 +132,19 @@ const Notes = () => {
                     type="button"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
-                    onClick={() => {
-                      editNote(
+                    onClick={async () => {
+                      const stat = await editNote(
                         enote._id,
                         enote.title,
                         enote.description,
                         enote.tag
                       );
                       setNoteView(false);
+                      if (stat.success !== true) {
+                        props.showAlert(stat.msg, "danger");
+                      } else {
+                        props.showAlert(stat.msg, "success");
+                      }
                     }}
                   >
                     Update Note
@@ -146,7 +163,7 @@ const Notes = () => {
         </div>
       )}
       <div className="row my-3">
-        <h2>YOUR NOTES</h2>
+        <h4>YOUR NOTES</h4>
         <div className="container">
           {notes.length === 0 && "No notes added till now !"}
         </div>
@@ -158,6 +175,7 @@ const Notes = () => {
                 note={note}
                 toggleNoteView={toggleNoteView}
                 setNote={setEnote}
+                showAlert={props.showAlert}
               />
             );
           })}

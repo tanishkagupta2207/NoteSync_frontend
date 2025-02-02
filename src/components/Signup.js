@@ -1,47 +1,54 @@
-import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+const Signup = (props) => {
   const [credentials, setCredentials] = useState({
-    name: '',
-    email: '',
-    password: '',
-    cpassword: ''
+    name: "",
+    email: "",
+    password: "",
+    cpassword: "",
   });
   let navigate = useNavigate();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(credentials.password !== credentials.cpassword){
-      alert('Password and Confirm Password do not match!');
-      return ;
+    if (credentials.password !== credentials.cpassword) {
+      props.showAlert("Password and Confirm Password do not match!", "danger");
+      return;
     }
-    const response = await fetch(`${process.env.REACT_APP_HOST_URL}api/auth/createUser`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(credentials)
-    }); 
+    const response = await fetch(
+      `${process.env.REACT_APP_HOST_URL}api/auth/createUser`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      }
+    );
     const res = await response.json();
-    console.log(res); 
-    if(res.success){
+    if (res.success) {
       localStorage.setItem("token", res.authToken);
-      navigate('/');
+      props.showAlert("Account created successfully!", "success");
+      navigate("/");
+    } else {
+      if (res.msg) {
+        props.showAlert(res.msg, "danger");
+      } else {
+        props.showAlert(res.errors[0].msg, "danger");
+      }
     }
-    else{
-      alert('Could not SignUp!');
-    }
-  }
-  
+  };
+
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
   return (
-    <div className='container'>
+    <div className="container my-3" >
+      <h1 style={{'textAlign': 'center'}}>Create Account</h1>
       <form onSubmit={handleSubmit}>
-      <div className="mb-3">
+        <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name
           </label>
@@ -100,12 +107,12 @@ const Signup = () => {
             value={credentials.cpassword}
           />
         </div>
-        <button type="submit" className="btn btn-primary" >
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import noteContext from "../context/notes/NoteContext";
 
-const AddNote = () => {
+const AddNote = (props) => {
   const context = useContext(noteContext);
   const { addNote } = context;
 
@@ -12,14 +12,19 @@ const AddNote = () => {
     tag: "",
   });
 
-  const handleClick = (e) => {
+  const handleClick = async(e) => {
     e.preventDefault();
-    addNote(note.title, note.description, note.tag);
-    setNote({
-      title: "",
-      description: "",
-      tag: "",
-    });
+    const stat = await addNote(note.title, note.description, note.tag);
+    if(stat.success !== true){
+      props.showAlert(stat.msg, 'danger');
+    } else{
+      props.showAlert(stat.msg, 'success');
+      setNote({
+        title: "",
+        description: "",
+        tag: "",
+      });
+    }
   };
 
   const onChange = (e) => {
@@ -28,7 +33,7 @@ const AddNote = () => {
 
   return (
     <div className="container my-3">
-      <h2>ADD A NOTE</h2>
+      <h4>ADD A NOTE</h4>
       <form className="my-3">
         <div className="mb-3">
           <label htmlFor="title" className="form-label">
