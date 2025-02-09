@@ -24,7 +24,14 @@ To get started with the NoteSync Frontend, follow these steps:
     ```bash
     cd NoteSync_frontend
     ```
-3. **Install dependencies:**
+
+3. **Set up environment variables:**
+    Create a `.env.local` file in the root directory and add the necessary environment variables:
+    ```env
+    REACT_APP_HOST_URL=your_backend_base_url
+    ```
+
+4. **Install dependencies:**
     ```bash
     npm install
     ```
