@@ -74,7 +74,7 @@ We welcome contributions from the community! To contribute, follow these steps:
 
 ## 🎥 Demo
 
-Check out our live demo [here](#).
+Check out our live demo [here](https://note-sync-frontend.vercel.app/).
 
 ## 📝 NOTE 
 
@@ -82,6 +82,7 @@ This repository contains only the frontend code for the NoteSync application. To
 
 ## 🙏 Acknowledgements
 
+- **Vercel** for providing hosting options.
 - **React** for the awesome library.
 - **Bootstrap** for the responsive design framework.
 - **CodeWithHarry** for the helpful tutorials and guidance.
