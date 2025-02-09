@@ -10,6 +10,9 @@ const NavBar = () => {
     localStorage.removeItem('token');
     navigate('/login');
   }
+  const handleGetUser = () => {
+    navigate('/user');
+  }
 
   return (
     <nav className="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -63,6 +66,7 @@ const NavBar = () => {
             </form>
           ) : (
             <form className="d-flex">
+              <i className="fa-solid fa-circle-user fa-2xl mx-3 my-4" style={{color:'white'}} role="button" onClick={handleGetUser}></i>
               <button className="btn btn-danger mx-2"  onClick={handleLogout}>
                 Logout
               </button>

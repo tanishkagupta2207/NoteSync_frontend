@@ -163,7 +163,7 @@ const Notes = (props) => {
         </div>
       )}
       <div className="row my-3">
-        <h4>YOUR NOTES</h4>
+        <h4 style={{'marginTop': '40px'}}>YOUR NOTES</h4>
         <div className="container">
           {notes.length === 0 && "No notes added till now !"}
         </div>

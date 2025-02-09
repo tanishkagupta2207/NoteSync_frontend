@@ -95,6 +95,7 @@ const Login = (props) => {
             onChange={onChange}
             style={inputStyle}
             value={credentials.email}
+            autoComplete='email'
           />
         </div>
         <div className="mb-3">
@@ -109,6 +110,7 @@ const Login = (props) => {
             onChange={onChange}
             value={credentials.password}
             style={inputStyle}
+            autoComplete='password'
           />
         </div>
         <button type="submit" className="btn btn-primary" style={buttonStyle}>

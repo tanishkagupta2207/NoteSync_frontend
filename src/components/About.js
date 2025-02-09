@@ -2,23 +2,23 @@ import React from 'react';
 
 const About = () => {
   const containerStyle = {
-    padding: '20px',
-    backgroundColor: '#f3e8e8',
-    color: '#333',
     maxWidth: '800px',
     margin: '0 auto',
+    padding: '20px',
+    backgroundColor: 'rgba(114, 113, 113, 0.15)',
     borderRadius: '8px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
     marginTop: '120px',
+    color: 'rgb(0, 0, 0)',
   };
 
   const headingStyle = {
     color: '#291a40',
-    marginBottom: '16px',
+    marginBottom: '20px',
   };
 
   const textStyle = {
-    color: '#666',
+    color: 'rgb(0, 0, 0)',
     lineHeight: '1.6',
   };
 

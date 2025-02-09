@@ -45,46 +45,46 @@ const Signup = (props) => {
   };
 
   const containerStyle = {
-    maxWidth: '500px',
-    margin: '0 auto',
-    padding: '20px',
-    backgroundColor: 'rgba(114, 113, 113, 0.15)',
-    borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
-    marginTop: '105px',
-    color: 'rgb(0, 0, 0)',
+    maxWidth: "500px",
+    margin: "0 auto",
+    padding: "20px",
+    backgroundColor: "rgba(114, 113, 113, 0.15)",
+    borderRadius: "8px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.5)",
+    marginTop: "105px",
+    color: "rgb(0, 0, 0)",
   };
 
   const headingStyle = {
-    textAlign: 'center',
-    color: '#291a40',
-    marginBottom: '20px',
+    textAlign: "center",
+    color: "#291a40",
+    marginBottom: "20px",
   };
 
   const formStyle = {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   };
 
   const labelStyle = {
-    marginBottom: '8px',
-    color: '#333',
+    marginBottom: "8px",
+    color: "#333",
   };
 
   const inputStyle = {
-    marginBottom: '16px',
-    padding: '10px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
+    marginBottom: "16px",
+    padding: "10px",
+    borderRadius: "4px",
+    border: "1px solid #ccc",
   };
 
   const buttonStyle = {
-    padding: '10px',
-    backgroundColor: 'rgb(0, 0, 0)',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
+    padding: "10px",
+    backgroundColor: "rgb(0, 0, 0)",
+    color: "#fff",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
   };
 
   return (
@@ -104,6 +104,7 @@ const Signup = (props) => {
             onChange={onChange}
             value={credentials.name}
             style={inputStyle}
+            autoComplete="username"
           />
         </div>
         <div className="mb-3">
@@ -120,6 +121,7 @@ const Signup = (props) => {
             onChange={onChange}
             value={credentials.email}
             style={inputStyle}
+            autoComplete="email"
           />
         </div>
         <div className="mb-3">
@@ -136,6 +138,7 @@ const Signup = (props) => {
             minLength={5}
             value={credentials.password}
             style={inputStyle}
+            autoComplete="new-password"
           />
         </div>
         <div className="mb-3">
@@ -152,6 +155,7 @@ const Signup = (props) => {
             minLength={5}
             value={credentials.cpassword}
             style={inputStyle}
+            autoComplete="new-password"
           />
         </div>
         <button type="submit" className="btn btn-primary" style={buttonStyle}>
